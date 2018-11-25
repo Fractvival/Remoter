@@ -10,35 +10,53 @@
 		die("Sory, neco se deje s databazi, viz zde: " . $conn->connect_error);
 	} 
 
-	if ( isset($_POST['OK1']) )
+	if ( isset($_POST['PC11']) )
 	{
-		$conn->query("UPDATE state SET value=1 WHERE id='OK1'");
-		echo "BUTTON 1";
-		echo "<BR>";
-		echo "<BR>";
+		$conn->query("UPDATE `table` SET `value`=1 WHERE `id`='PC11'");
 	}
-	else if ( isset($_POST['OK2']) )
+	else if ( isset($_POST['PC12']) )
 	{
-		$conn->query("UPDATE state SET value=1 WHERE id='OK2'");
-		echo "BUTTON 2";
-		echo "<BR>";
-		echo "<BR>";
+		$conn->query("UPDATE `table` SET `value`=1 WHERE `id`='PC12'");
 	}
-	else if ( isset($_POST['OK3']) )
+	else if ( isset($_POST['PC13']) )
 	{
-		$conn->query("UPDATE state SET value=1 WHERE id='OK3'");
-		echo "BUTTON 3";
-		echo "<BR>";
-		echo "<BR>";
+		$conn->query("UPDATE `table` SET `value`=1 WHERE `id`='PC13'");
+	}
+	else if ( isset($_POST['PC21']) )
+	{
+		$conn->query("UPDATE `table` SET `value`=1 WHERE `id`='PC21'");
+	}
+	else if ( isset($_POST['PC22']) )
+	{
+		$conn->query("UPDATE `table` SET `value`=1 WHERE `id`='PC22'");
+	}
+	else if ( isset($_POST['PC23']) )
+	{
+		$conn->query("UPDATE `table` SET `value`=1 WHERE `id`='PC23'");
+	}
+	else if ( isset($_POST['PC31']) )
+	{
+		$conn->query("UPDATE `table` SET `value`=1 WHERE `id`='PC31'");
+	}
+	else if ( isset($_POST['PC32']) )
+	{
+		$conn->query("UPDATE `table` SET `value`=1 WHERE `id`='PC32'");
+	}
+	else if ( isset($_POST['PC33']) )
+	{
+		$conn->query("UPDATE `table` SET `value`=1 WHERE `id`='PC33'");
 	}
 	else if ( isset($_POST['RESET']) )
 	{
-		echo "RESET";
-		echo "<BR>";
-		echo "<BR>";
-		$conn->query("UPDATE state SET value=0 WHERE id='OK1'");
-		$conn->query("UPDATE state SET value=0 WHERE id='OK2'");
-		$conn->query("UPDATE state SET value=0 WHERE id='OK3'");
+		$conn->query("UPDATE `table` SET `value`=0 WHERE `id`='PC11'");
+		$conn->query("UPDATE `table` SET `value`=0 WHERE `id`='PC12'");
+		$conn->query("UPDATE `table` SET `value`=0 WHERE `id`='PC13'");
+		$conn->query("UPDATE `table` SET `value`=0 WHERE `id`='PC21'");
+		$conn->query("UPDATE `table` SET `value`=0 WHERE `id`='PC22'");
+		$conn->query("UPDATE `table` SET `value`=0 WHERE `id`='PC23'");
+		$conn->query("UPDATE `table` SET `value`=0 WHERE `id`='PC31'");
+		$conn->query("UPDATE `table` SET `value`=0 WHERE `id`='PC32'");
+		$conn->query("UPDATE `table` SET `value`=0 WHERE `id`='PC33'");
 	}
 	else
 	{
@@ -46,5 +64,6 @@
 		echo "<BR>";
 		echo "<BR>";
 	}
+	$conn->close();
 	header("location: index.php");
 ?>

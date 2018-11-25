@@ -1,4 +1,4 @@
-<div style="width:300px; margin:auto;">
+<div style="width:500px; margin:auto;">
 <?php
 $servername = "localhost";
 $username = "remoterwzcz4137";
@@ -9,73 +9,137 @@ if ($conn->connect_error)
 {
     die("Sory, neco se deje s databazi, viz zde: " . $conn->connect_error);
 } 
-$sql = "SELECT id, value FROM state";
+$sql = "SELECT `id`,`value` FROM `table` WHERE 1";
 $result = $conn->query($sql);
 ?>
 <BR>
-<CENTER><H2><B>REMOTER</B></H2></CENTER>
+<HR>
+<CENTER><H2><B>PC REMOTER</B></H2></CENTER>
+<HR>
 <BR>
 <CENTER>
 <form action="/setpage.php" method="POST">
 <?php
-if ($result->num_rows == 3 ) 
+if ($result->num_rows == 9 ) 
 {
 	echo "<B><CODE>OVLADANI 1:</CODE></B><BR>";
-	$OK1 = mysqli_query($conn,"SELECT value FROM state WHERE id ='OK1'");
-	$DATA1 = mysqli_fetch_array($OK1);
-	if ($DATA1[0] == 0)
+	$PC11 = mysqli_query($conn,"SELECT `value` FROM `table` WHERE `id`='PC11'");
+	$PC11 = mysqli_fetch_array($PC11);
+	if ($PC11[0] == 0)
 	{
-		echo "<INPUT TYPE='SUBMIT' NAME='OK1' SIZE=120 VALUE='POSLAT SIGNAL'>";
+		echo "<INPUT TYPE='SUBMIT' NAME='PC11' SIZE=120 VALUE='ZAPNOUT'>&nbsp; &nbsp;";
 	}
 	else
 	{
-		echo "<INPUT TYPE='SUBMIT' NAME='OK1' SIZE=120 VALUE='KVITOVANI' DISABLED>";
+		echo "<INPUT TYPE='SUBMIT' NAME='PC11' SIZE=120 VALUE='ZAPNOUT' DISABLED>&nbsp; &nbsp;";
+	}
+	$PC12 = mysqli_query($conn,"SELECT `value` FROM `table` WHERE `id`='PC12'");
+	$PC12 = mysqli_fetch_array($PC12);
+	if ($PC12[0] == 0)
+	{
+		echo "<INPUT TYPE='SUBMIT' NAME='PC12' SIZE=120 VALUE='VYPNOUT'>&nbsp; &nbsp;";
+	}
+	else
+	{
+		echo "<INPUT TYPE='SUBMIT' NAME='PC12' SIZE=120 VALUE='VYPNOUT' DISABLED>&nbsp; &nbsp;";
+	}
+	$PC13 = mysqli_query($conn,"SELECT `value` FROM `table` WHERE `id`='PC13'");
+	$PC13 = mysqli_fetch_array($PC13);
+	if ($PC13[0] == 0)
+	{
+		echo "<INPUT TYPE='SUBMIT' NAME='PC13' SIZE=120 VALUE='RESTART'>";
+	}
+	else
+	{
+		echo "<INPUT TYPE='SUBMIT' NAME='PC13' SIZE=120 VALUE='RESTART' DISABLED>";
 	}
 	echo "<BR>";
 	echo "<BR>";
 	echo "<B><CODE>OVLADANI 2:</CODE></B><BR>";
-	$OK2 = mysqli_query($conn,"SELECT value FROM state WHERE id ='OK2'");
-	$DATA2 = mysqli_fetch_array($OK2);
-	if ($DATA2[0] == 0)
+	$PC21 = mysqli_query($conn,"SELECT `value` FROM `table` WHERE `id`='PC21'");
+	$PC21 = mysqli_fetch_array($PC21);
+	if ($PC21[0] == 0)
 	{
-		echo "<INPUT TYPE='SUBMIT' NAME='OK2' SIZE=120 VALUE='POSLAT SIGNAL'>";
+		echo "<INPUT TYPE='SUBMIT' NAME='PC21' SIZE=120 VALUE='ZAPNOUT'>&nbsp; &nbsp;";
 	}
 	else
 	{
-		echo "<INPUT TYPE='SUBMIT' NAME='OK2' SIZE=120 VALUE='KVITOVANI' DISABLED>";
+		echo "<INPUT TYPE='SUBMIT' NAME='PC21' SIZE=120 VALUE='ZAPNOUT' DISABLED>&nbsp; &nbsp;";
+	}
+	$PC22 = mysqli_query($conn,"SELECT `value` FROM `table` WHERE `id`='PC22'");
+	$PC22 = mysqli_fetch_array($PC22);
+	if ($PC22[0] == 0)
+	{
+		echo "<INPUT TYPE='SUBMIT' NAME='PC22' SIZE=120 VALUE='VYPNOUT'>&nbsp; &nbsp;";
+	}
+	else
+	{
+		echo "<INPUT TYPE='SUBMIT' NAME='PC22' SIZE=120 VALUE='VYPNOUT' DISABLED>&nbsp; &nbsp;";
+	}
+	$PC23 = mysqli_query($conn,"SELECT `value` FROM `table` WHERE `id`='PC23'");
+	$PC23 = mysqli_fetch_array($PC23);
+	if ($PC23[0] == 0)
+	{
+		echo "<INPUT TYPE='SUBMIT' NAME='PC23' SIZE=120 VALUE='RESTART'>";
+	}
+	else
+	{
+		echo "<INPUT TYPE='SUBMIT' NAME='PC23' SIZE=120 VALUE='RESTART' DISABLED>";
 	}
 	echo "<BR>";
 	echo "<BR>";
 	echo "<B><CODE>OVLADANI 3:</CODE></B><BR>";
-	$OK3 = mysqli_query($conn,"SELECT value FROM state WHERE id ='OK3'");
-	$DATA3 = mysqli_fetch_array($OK3);
-	if ($DATA3[0] == 0)
+	$PC31 = mysqli_query($conn,"SELECT `value` FROM `table` WHERE `id`='PC31'");
+	$PC31 = mysqli_fetch_array($PC31);
+	if ($PC31[0] == 0)
 	{
-		echo "<INPUT TYPE='submit' NAME='OK3' SIZE=120 VALUE='POSLAT SIGNAL'>";
+		echo "<INPUT TYPE='SUBMIT' NAME='PC31' SIZE=120 VALUE='ZAPNOUT'>&nbsp; &nbsp;";
 	}
 	else
 	{
-		echo "<INPUT TYPE='submit' NAME='OK3' SIZE=120 VALUE='KVITOVANI' DISABLED>";
+		echo "<INPUT TYPE='SUBMIT' NAME='PC31' SIZE=120 VALUE='ZAPNOUT' DISABLED>&nbsp; &nbsp;";
+	}
+	$PC32 = mysqli_query($conn,"SELECT `value` FROM `table` WHERE `id`='PC32'");
+	$PC32 = mysqli_fetch_array($PC32);
+	if ($PC32[0] == 0)
+	{
+		echo "<INPUT TYPE='SUBMIT' NAME='PC32' SIZE=120 VALUE='VYPNOUT'>&nbsp; &nbsp;";
+	}
+	else
+	{
+		echo "<INPUT TYPE='SUBMIT' NAME='PC32' SIZE=120 VALUE='VYPNOUT' DISABLED>&nbsp; &nbsp;";
+	}
+	$PC33 = mysqli_query($conn,"SELECT `value` FROM `table` WHERE `id`='PC33'");
+	$PC33 = mysqli_fetch_array($PC33);
+	if ($PC33[0] == 0)
+	{
+		echo "<INPUT TYPE='SUBMIT' NAME='PC33' SIZE=120 VALUE='RESTART'>";
+	}
+	else
+	{
+		echo "<INPUT TYPE='SUBMIT' NAME='PC33' SIZE=120 VALUE='RESTART' DISABLED>";
 	}
 	echo "<BR>";
 	echo "<BR>";
 	echo "<BR>";
-	echo "<INPUT TYPE='SUBMIT' NAME='RESET' SIZE=120 VALUE='RESETOVAT'>";
+	echo "<INPUT TYPE='SUBMIT' NAME='RESET' SIZE=120 VALUE='OBNOVIT STAVY'>";
 	echo "<BR>";
 	echo "<BR>";
+	echo "<HR>";
 }
 else
 {
 	echo "<BR>";
 	echo "<BR>";
-	echo "<B>REMOTER</B>";
+	echo "<HR>";
+	echo "<B>PC REMOTER</B>";
 	echo "<BR>";
-	echo "<CODE>PROGMaxi software 2018</CODE>";
 	echo "<BR>";
 	echo "<BR>";
 	echo "<B><CODE>HODNOTY V DATABAZI NESOUHLASI !</CODE></B><BR>";
 	echo "<BR>";
 	echo "<BR>";
+	echo "<HR>";
 }
 $conn->close();
 ?>
