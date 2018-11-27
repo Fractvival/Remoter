@@ -8,9 +8,9 @@
 - Typ testovacího relé: **JQC3F-05VDC-C**
 
 
-Ve složce Web se nachází ovládací část, která se kopíruje na webhosting
+Ve složce **Web** se nachází ovládací část, která se kopíruje na webhosting
 
-Ve složce PCremoter se nachází zdroják pro zapínání/vypínání PC, který se nahraje do desky (wemosky)
+Ve složce **PCremoter** se nachází zdroják pro zapínání/vypínání PC, který se nahraje do desky (wemosky)
 
 
 
