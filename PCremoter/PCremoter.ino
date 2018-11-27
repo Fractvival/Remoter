@@ -7,7 +7,22 @@
 #include <ESP8266WiFi.h>
 
 
-// DATA K PRIHLASENI DO DATABAZE MYSQL
+// UDAJE K PRIHLASENI NA SIT WIFI
+//************************************
+// Nazev wifi
+char ssid[] = "NAZEV_TVE_WIFI_PROSIM";
+// Heslo wifi
+char pass[] = "HESLO_TVE_WIFI_PROSIM";
+
+
+// OZNACENI PINU PRO RELE A CASY [ms]
+//************************************
+int relayPin  = D1;
+int onDelay   = 500;
+int offDelay  = 8000;
+
+
+// DATA K PRIHLASENI DO DATABAZE MYSQL (nemenit)
 //************************************
 // IP adresa MySQL serveru
 IPAddress sql_ipaddr(52,29,239,198);
@@ -15,20 +30,6 @@ IPAddress sql_ipaddr(52,29,239,198);
 char sql_user[] = "sql7267198";
 // Heslo
 char sql_pass[] = "zzN1qyBNmf";
-
-// UDAJE K PRIHLASENI NA SIT WIFI
-//************************************
-// Nazev wifi
-char ssid[] = "VanillkaNET";
-// Heslo wifi
-char pass[] = "0420792433240";
-
-// OZNACENI PINU PRO RELE A CASY [ms]
-//************************************
-int relayPin  = D1;
-int onDelay   = 500;
-int offDelay  = 5000;
-
 
 //////////////////////////////////////////////////////
 //////////////////////////////////////////////////////
