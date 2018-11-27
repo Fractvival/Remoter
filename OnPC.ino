@@ -6,13 +6,17 @@
 //#include <MySQL_Encrypt_Sha1.h>
 //#include <MySQL_Packet.h>
 #include <ESP8266WiFi.h>
-
-
+/*
+$servername = "c102um.forpsi.com";
+$username = "f74453";
+$password = "sql39711793";
+$dbname = "f74453";
+*/
 // DATA K PRIHLASENI DO DATABAZE MYSQL
-IPAddress sql_ipaddr(85,10,205,173);          // IP of the MySQL *server* here
-char sql_user[] = "progmaxi";                 // MySQL user login username
-char sql_pass[] = "db4free3971";              // MySQL user login password
-char sql_data[] = "progmaxi";
+IPAddress sql_ipaddr(52,29,239,198);          // IP of the MySQL *server* here
+char sql_user[] = "sql7267198";                 // MySQL user login username
+char sql_pass[] = "zzN1qyBNmf";              // MySQL user login password
+char sql_data[] = "sql7267198";
 
 char ssid[] = "MyWifi";                   // SSID
 char pass[] = "121212121212";             // SSID Password
@@ -77,10 +81,32 @@ void loop()
     num_fails = 0;
     cursor = new MySQL_Cursor(&conn);
     /////////////////////////////////
-    cursor->execute("SELECT * FROM progmaxi.table WHERE 1");
+    cursor->execute("SELECT * FROM sql7267198.table WHERE 1");
     columns = cursor->get_columns();
-    //row = cursor->get_next_row();
-
+    for (int f = 0; f < columns->num_fields; f++) 
+    {
+      Serial.print(columns->fields[f]->name);
+      if (f < columns->num_fields-1) 
+      {
+        Serial.print(',');
+      }
+    }
+    Serial.println();
+    do {
+      row = cursor->get_next_row();
+      if (row != NULL) 
+      {
+        for (int f = 0; f < columns->num_fields; f++) 
+        {
+          Serial.print(row->values[f]);
+          if (f < columns->num_fields-1) 
+          {
+            Serial.print(',');
+          }
+        }
+        Serial.println();
+      }
+     } while (row != NULL);
     delete cursor;
   }
   else
