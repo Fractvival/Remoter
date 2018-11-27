@@ -1,11 +1,11 @@
-REMOTER
+## REMOTER 
+### (web management+wemos sketch)
 -------
 
-Vzdálené ovládání zařízení přes web pomocí MySQL.
+**Vzdálené ovládání zařízení přes web pomocí MySQL.**
 
-Testováno na desce Wemos D1- D1 mini, D1 mini Lite    (ESP8266)
-
-Typ testovacího relé: JQC3F-05VDC-C
+- Testováno na desce Wemos **D1 mini**, **D1 mini Lite**
+- Typ testovacího relé: **JQC3F-05VDC-C**
 
 
 Ve složce Web se nachází ovládací část, která se kopíruje na webhosting
@@ -14,9 +14,9 @@ Ve složce PCremoter se nachází zdroják pro zapínání/vypínání PC, kter�
 
 
 
-PCremoter:
+### PCremoter:
 
-Pro úspěšné přelinkování je zapotřebí stáhnout knihovnu MySQL Connector Arduino by Charles Bell v1.1.1.
+Pro úspěšné přelinkování je zapotřebí stáhnout knihovnu **MySQL Connector Arduino by Charles Bell v1.1.1**
 
 Před linkováním nastavit údaje pro Wifi v úvodu zdrojáku.
 
