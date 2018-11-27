@@ -70,4 +70,4 @@ Program očekává databázi, která obsahuje tabulku s názvem **table**, ve kt
 | PC33   |    0    |
 
 Hodnota **id** je neměnná, typu TEXT. Hodnota **value** má hodnotu **0** pro označení vypnutého stavu, a **1** pro označení zapnutého stavu. Hodnota **value** je typu INT. Tuto tabulku je nutné si vytvořit ručně, například pomocí phpAdmina.
-ID s označením **PC11,PC12,PC13** jsou pro **ovládání 1**. Ostatní zatím nejsou obsluhovány.
+ID s označením **PC11,PC12,PC13** jsou pro **ovládání 1**. Ostatní zatím nejsou obsluhovány. V momentě, kdy program nalezne u některého **id** hodnotu **1**, provede zápis do databáze a hodnotu změní zpět na **0**. Toto je považováno za kvitování požadavku. V opačném případě by tlačítko u webmanagementu zůstalo nedostupné, dokud by nedošlo k manuálního resetování stavu tlačítek.
