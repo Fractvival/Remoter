@@ -1,4 +1,4 @@
-// PC REMOTER
+// PCremoter
 // 11/2018
 ///////////////////////////////////////////
 
@@ -10,9 +10,9 @@
 // UDAJE K PRIHLASENI NA SIT WIFI
 //************************************
 // Nazev wifi
-char ssid[] = "NAZEV_TVE_WIFI_PROSIM";
+char ssid[] = "NAZEV_WIFI";
 // Heslo wifi
-char pass[] = "HESLO_TVE_WIFI_PROSIM";
+char pass[] = "HESLO_WIFI";
 
 
 // OZNACENI PINU PRO RELE A CASY [ms]
@@ -45,9 +45,14 @@ MySQL_Cursor* cursor;
 long num_fails = 0;
 row_values *row = NULL;
 column_names *columns = NULL;
+#define LED BUILTIN_LED
 
+// Stavy tlacitek nactene z databaze
 int stateButton[9] = {0};
 
+// Spoustec rele
+// defaultne spusti rele na cas urceny pro zapnuti PC
+// parametr false spusti rele na cas pro vypnuti PC
 void runRelay( bool On = true )
 {
   if ( On )
@@ -71,6 +76,7 @@ void setup()
   Serial.print("\n* PC REMOTER startuje\n");
 
   pinMode(relayPin, OUTPUT);
+  pinMode(LED, OUTPUT);
 
   WiFi.mode(WIFI_STA);
   // Vypis informaci o wifi na konzolu
@@ -85,10 +91,15 @@ void setup()
   // Pockame na spojeni s wifi s kontrolou neuspechu
   // Pokud spojeni neprobehne ve stanovenem poctu pokusu, ukonci smycku
   while (WiFi.status() != WL_CONNECTED) 
-  { 
-    delay(500);
+  {
+    digitalWrite(LED, HIGH); 
+    delay(80);
     Serial.print(".");
+    digitalWrite(LED, LOW);
+    delay(80);
   }
+  digitalWrite(LED, LOW);
+  delay(80);
   // Po navazani spojeni vypis info do konzoly  
   Serial.print("OK!\n\n");  
   Serial.print("* Testuji pristupnost databaze\n");
@@ -112,7 +123,6 @@ void soft_reset()
 
 void loop() 
 {
-  delay(1000);
   if (conn.connected()) 
   {
     num_fails = 0;
@@ -121,15 +131,10 @@ void loop()
     /////////////////////////////////
     cursor->execute("SELECT * FROM sql7267198.table WHERE 1");
     columns = cursor->get_columns();
-    for (int f = 0; f < columns->num_fields; f++) 
-    {
-      Serial.print(columns->fields[f]->name);
-      if (f < columns->num_fields-1) 
-      {
-        Serial.print(',');
-      }
-    }
-    Serial.println();
+
+    digitalWrite(LED, HIGH);
+    delay(500);
+    
     int deltaButton = 0;
     do {
       row = cursor->get_next_row();
@@ -137,7 +142,6 @@ void loop()
       {
         for (int f = 0; f < columns->num_fields; f++) 
         {
-          Serial.print(row->values[f]);
           if ( strcmp(row->values[f],"0" ) == 0 )
           {
             stateButton[deltaButton] = 0;
@@ -150,14 +154,12 @@ void loop()
           }
           else
           {}
-          if (f < columns->num_fields-1) 
-          {
-            Serial.print(',');
-          }
         }
-        Serial.println();
       }
      } while (row != NULL);
+
+    digitalWrite(LED, LOW);
+    delay(500);
 
     if ( stateButton[0] == 1 )
     {
@@ -165,6 +167,13 @@ void loop()
       Serial.print("* Kvituji pozadavek...");
       cursor->execute("UPDATE sql7267198.table SET value=0 WHERE id='PC11'");
       Serial.println("OK");
+      for ( int i = 0; i < 20; i++ )
+      {
+        digitalWrite(LED, HIGH);
+        delay(50);
+        digitalWrite(LED, LOW);
+        delay(50);
+      }
       runRelay();      
     }
 
@@ -174,10 +183,17 @@ void loop()
       Serial.print("* Kvituji pozadavek...");
       cursor->execute("UPDATE sql7267198.table SET value=0 WHERE id='PC12'");
       Serial.println("OK");
+      for ( int i = 0; i < 20; i++ )
+      {
+        digitalWrite(LED, HIGH);
+        delay(50);
+        digitalWrite(LED, LOW);
+        delay(50);
+      }
       runRelay(false);
     }
-
     delete cursor;
+    digitalWrite(LED, LOW);
   }
   else
   {
@@ -185,7 +201,10 @@ void loop()
     Serial.println("* Obnovuji spojeni s databazi...");
     if (conn.connect(sql_ipaddr, 3306, sql_user, sql_pass)) 
     {
-      delay(500);
+      digitalWrite(LED, HIGH);
+      delay(250);
+      digitalWrite(LED, LOW);
+      delay(250);
       Serial.println("* Spojeni obnoveno!");
       num_fails++;
       if (num_fails == MAX_FAILED_CONNECTS) 
