@@ -1,12 +1,27 @@
 <div style="width:500px; margin:auto;">
 <?php
-$servername = "localhost";
-$username = "remoterwzcz4137";
-$password = "T4UMJcX";
-$dbname = "remoterwzcz4137";
+$servername = "sql7.freesqldatabase.com";
+$username = "sql7267198";
+$password = "zzN1qyBNmf";
+$dbname = "sql7267198";
+/*
+$servername = "db4free.net";
+$username = "progmaxi";
+$password = "db4free3971";
+$dbname = "progmaxi";
+*/
+/*
+$servername = "c102um.forpsi.com";
+$username = "f74453";
+$password = "sql39711793";
+$dbname = "f74453";
+*/
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) 
 {
+	echo "<HR>";
+	echo "<CENTER><H2><B>PC REMOTER</B></H2></CENTER>";
+	echo "<HR>";
     die("Sory, neco se deje s databazi, viz zde: " . $conn->connect_error);
 } 
 $sql = "SELECT `id`,`value` FROM `table` WHERE 1";
@@ -18,7 +33,7 @@ $result = $conn->query($sql);
 <HR>
 <BR>
 <CENTER>
-<form action="/setpage.php" method="POST">
+<form action="setpage.php" method="POST">
 <?php
 if ($result->num_rows == 9 ) 
 {
@@ -27,31 +42,31 @@ if ($result->num_rows == 9 )
 	$PC11 = mysqli_fetch_array($PC11);
 	if ($PC11[0] == 0)
 	{
-		echo "<INPUT TYPE='SUBMIT' NAME='PC11' SIZE=120 VALUE='ZAPNOUT'>&nbsp; &nbsp;";
+		echo "<INPUT TYPE='SUBMIT' NAME='PC11' SIZE=10 VALUE='ZAPNOUT'>&nbsp; &nbsp;";
 	}
 	else
 	{
-		echo "<INPUT TYPE='SUBMIT' NAME='PC11' SIZE=120 VALUE='ZAPNOUT' DISABLED>&nbsp; &nbsp;";
+		echo "<INPUT TYPE='SUBMIT' NAME='PC11' SIZE=10 VALUE='ZAPNOUT' DISABLED>&nbsp; &nbsp;";
 	}
 	$PC12 = mysqli_query($conn,"SELECT `value` FROM `table` WHERE `id`='PC12'");
 	$PC12 = mysqli_fetch_array($PC12);
 	if ($PC12[0] == 0)
 	{
-		echo "<INPUT TYPE='SUBMIT' NAME='PC12' SIZE=120 VALUE='VYPNOUT'>&nbsp; &nbsp;";
+		echo "<INPUT TYPE='SUBMIT' NAME='PC12' SIZE=10 VALUE='VYPNOUT'>&nbsp; &nbsp;";
 	}
 	else
 	{
-		echo "<INPUT TYPE='SUBMIT' NAME='PC12' SIZE=120 VALUE='VYPNOUT' DISABLED>&nbsp; &nbsp;";
+		echo "<INPUT TYPE='SUBMIT' NAME='PC12' SIZE=10 VALUE='VYPNOUT' DISABLED>&nbsp; &nbsp;";
 	}
 	$PC13 = mysqli_query($conn,"SELECT `value` FROM `table` WHERE `id`='PC13'");
 	$PC13 = mysqli_fetch_array($PC13);
 	if ($PC13[0] == 0)
 	{
-		echo "<INPUT TYPE='SUBMIT' NAME='PC13' SIZE=120 VALUE='RESTART'>";
+		echo "<INPUT TYPE='SUBMIT' NAME='PC13' SIZE=10 VALUE='      N/A      ' DISABLED>";
 	}
 	else
 	{
-		echo "<INPUT TYPE='SUBMIT' NAME='PC13' SIZE=120 VALUE='RESTART' DISABLED>";
+		echo "<INPUT TYPE='SUBMIT' NAME='PC13' SIZE=10 VALUE='      N/A      ' DISABLED>";
 	}
 	echo "<BR>";
 	echo "<BR>";
@@ -60,31 +75,31 @@ if ($result->num_rows == 9 )
 	$PC21 = mysqli_fetch_array($PC21);
 	if ($PC21[0] == 0)
 	{
-		echo "<INPUT TYPE='SUBMIT' NAME='PC21' SIZE=120 VALUE='ZAPNOUT'>&nbsp; &nbsp;";
+		echo "<INPUT TYPE='SUBMIT' NAME='PC21' SIZE=10 VALUE='      N/A      ' DISABLED>&nbsp; &nbsp;";
 	}
 	else
 	{
-		echo "<INPUT TYPE='SUBMIT' NAME='PC21' SIZE=120 VALUE='ZAPNOUT' DISABLED>&nbsp; &nbsp;";
+		echo "<INPUT TYPE='SUBMIT' NAME='PC21' SIZE=10 VALUE='      N/A      ' DISABLED>&nbsp; &nbsp;";
 	}
 	$PC22 = mysqli_query($conn,"SELECT `value` FROM `table` WHERE `id`='PC22'");
 	$PC22 = mysqli_fetch_array($PC22);
 	if ($PC22[0] == 0)
 	{
-		echo "<INPUT TYPE='SUBMIT' NAME='PC22' SIZE=120 VALUE='VYPNOUT'>&nbsp; &nbsp;";
+		echo "<INPUT TYPE='SUBMIT' NAME='PC22' SIZE=10 VALUE='      N/A      ' DISABLED>&nbsp; &nbsp;";
 	}
 	else
 	{
-		echo "<INPUT TYPE='SUBMIT' NAME='PC22' SIZE=120 VALUE='VYPNOUT' DISABLED>&nbsp; &nbsp;";
+		echo "<INPUT TYPE='SUBMIT' NAME='PC22' SIZE=10 VALUE='      N/A      ' DISABLED>&nbsp; &nbsp;";
 	}
 	$PC23 = mysqli_query($conn,"SELECT `value` FROM `table` WHERE `id`='PC23'");
 	$PC23 = mysqli_fetch_array($PC23);
 	if ($PC23[0] == 0)
 	{
-		echo "<INPUT TYPE='SUBMIT' NAME='PC23' SIZE=120 VALUE='RESTART'>";
+		echo "<INPUT TYPE='SUBMIT' NAME='PC23' SIZE=10 VALUE='      N/A      ' DISABLED>";
 	}
 	else
 	{
-		echo "<INPUT TYPE='SUBMIT' NAME='PC23' SIZE=120 VALUE='RESTART' DISABLED>";
+		echo "<INPUT TYPE='SUBMIT' NAME='PC23' SIZE=10 VALUE='      N/A      ' DISABLED>";
 	}
 	echo "<BR>";
 	echo "<BR>";
@@ -93,31 +108,31 @@ if ($result->num_rows == 9 )
 	$PC31 = mysqli_fetch_array($PC31);
 	if ($PC31[0] == 0)
 	{
-		echo "<INPUT TYPE='SUBMIT' NAME='PC31' SIZE=120 VALUE='ZAPNOUT'>&nbsp; &nbsp;";
+		echo "<INPUT TYPE='SUBMIT' NAME='PC31' SIZE=10 VALUE='      N/A      ' DISABLED>&nbsp; &nbsp;";
 	}
 	else
 	{
-		echo "<INPUT TYPE='SUBMIT' NAME='PC31' SIZE=120 VALUE='ZAPNOUT' DISABLED>&nbsp; &nbsp;";
+		echo "<INPUT TYPE='SUBMIT' NAME='PC31' SIZE=10 VALUE='      N/A      ' DISABLED>&nbsp; &nbsp;";
 	}
 	$PC32 = mysqli_query($conn,"SELECT `value` FROM `table` WHERE `id`='PC32'");
 	$PC32 = mysqli_fetch_array($PC32);
 	if ($PC32[0] == 0)
 	{
-		echo "<INPUT TYPE='SUBMIT' NAME='PC32' SIZE=120 VALUE='VYPNOUT'>&nbsp; &nbsp;";
+		echo "<INPUT TYPE='SUBMIT' NAME='PC32' SIZE=10 VALUE='      N/A      ' DISABLED>&nbsp; &nbsp;";
 	}
 	else
 	{
-		echo "<INPUT TYPE='SUBMIT' NAME='PC32' SIZE=120 VALUE='VYPNOUT' DISABLED>&nbsp; &nbsp;";
+		echo "<INPUT TYPE='SUBMIT' NAME='PC32' SIZE=10 VALUE='      N/A      ' DISABLED>&nbsp; &nbsp;";
 	}
 	$PC33 = mysqli_query($conn,"SELECT `value` FROM `table` WHERE `id`='PC33'");
 	$PC33 = mysqli_fetch_array($PC33);
 	if ($PC33[0] == 0)
 	{
-		echo "<INPUT TYPE='SUBMIT' NAME='PC33' SIZE=120 VALUE='RESTART'>";
+		echo "<INPUT TYPE='SUBMIT' NAME='PC33' SIZE=10 VALUE='      N/A      ' DISABLED>";
 	}
 	else
 	{
-		echo "<INPUT TYPE='SUBMIT' NAME='PC33' SIZE=120 VALUE='RESTART' DISABLED>";
+		echo "<INPUT TYPE='SUBMIT' NAME='PC33' SIZE=10 VALUE='      N/A      ' DISABLED>";
 	}
 	echo "<BR>";
 	echo "<BR>";
