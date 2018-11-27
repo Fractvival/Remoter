@@ -3,18 +3,6 @@
 	$username = "sql7267198";
 	$password = "zzN1qyBNmf";
 	$dbname = "sql7267198";
-	/*
-	$servername = "db4free.net";
-	$username = "progmaxi";
-	$password = "db4free3971";
-	$dbname = "progmaxi";
-	*/
-	/*
-	$servername = "c102um.forpsi.com";
-	$username = "f74453";
-	$password = "sql39711793";
-	$dbname = "f74453";
-	*/
 	$conn = new mysqli($servername, $username, $password, $dbname);
 	if ($conn->connect_error) 
 	{
