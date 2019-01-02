@@ -22,14 +22,14 @@ int onDelay   = 500;
 int offDelay  = 8000;
 
 
-// DATA K PRIHLASENI DO DATABAZE MYSQL (nemenit)
+// DATA K PRIHLASENI DO DATABAZE MYSQL
 //************************************
 // IP adresa MySQL serveru
-IPAddress sql_ipaddr(52,29,239,198);
+IPAddress sql_ipaddr(127,0,0,1);
 // Prihlasovaci jmeno
-char sql_user[] = "sql7267198";
+char sql_user[] = "UZIVATEL";
 // Heslo
-char sql_pass[] = "zzN1qyBNmf";
+char sql_pass[] = "HESLO";
 
 //////////////////////////////////////////////////////
 //////////////////////////////////////////////////////
